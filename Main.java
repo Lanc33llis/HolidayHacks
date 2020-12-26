@@ -37,6 +37,23 @@ public class Main extends JFrame {
         //     }
         // });
 
+        int timeSignature;
+        Chord chords[];
+        //for each chord, all information required:
+        //each chord needs roman numeral, may or may not have a number, can be diminished or half-diminished in rare cases, starting notes, bass, tenor, alto, soprano, length
+
+
+
+
+
+
+
+
+
+
+
+
+
         //midi devices
         Sequencer seq;
         Synthesizer synth;
@@ -57,12 +74,17 @@ public class Main extends JFrame {
             return;
         }
 
+        
+        // synth.loadAllInstruments(synth.getDefaultSoundbank());
+        
         //play midi file
         try {
             File myMidiFile = new File("scale_dsharp_minor.mid");
-
+            
             //sequence for sequencer
             Sequence mySeq = MidiSystem.getSequence(myMidiFile);
+            // println(synth.getAvailableInstruments().length);
+            synth.getChannels()[9].programChange(synth.getAvailableInstruments()[105].getPatch().getProgram());
             seq.setSequence(mySeq);
 
             seq.start();
