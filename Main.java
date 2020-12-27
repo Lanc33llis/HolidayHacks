@@ -37,8 +37,8 @@ public class Main extends JFrame {
         //     }
         // });
 
-        int timeSignature;
-        Chord chords[];
+        // int timeSignature;
+        // Chord chords[];
         //for each chord, all information required:
         //each chord needs roman numeral, may or may not have a number, can be diminished or half-diminished in rare cases, starting notes, bass, tenor, alto, soprano, length
 
@@ -46,13 +46,10 @@ public class Main extends JFrame {
 
 
 
-
-
-
-
-
-
-
+        Chord first;
+        try{
+            first = new Chord().major(SharpMajors.C).buildChord();
+        } catch(Exception e) {println(e);}
 
         //midi devices
         Sequencer seq;
