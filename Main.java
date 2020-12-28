@@ -11,19 +11,22 @@ public class Main extends JFrame {
         System.out.print(s);
     }
 
-    private static void createAndShowGUI() {
-        //just testing swing gui creation. We probably want to create a new class for this later rather than do this.
-
-        //Create and set up the window.
+    Main() {
         JFrame frame = new JFrame("Music Theory");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
 
-        //Hello World Label
-        JLabel label = new JLabel("Hello World");
-        frame.getContentPane().add(label);
+        // //Hello World Label
+        // JLabel label = new JLabel("Hello World");
+        // frame.add(label);
+
+        String notes[] = SharpMajors.list;
+        JComboBox<String> startingNotes = new JComboBox<String>(notes);
+        
+
+        frame.add(startingNotes);
 
         //Display the window.
-        frame.pack();
         frame.setVisible(true);
     }
 
@@ -37,19 +40,21 @@ public class Main extends JFrame {
         //     }
         // });
 
+        new Main();
+
         // int timeSignature;
         // Chord chords[];
         //for each chord, all information required:
         //each chord needs roman numeral, may or may not have a number, can be diminished or half-diminished in rare cases, starting notes, bass, tenor, alto, soprano, length
 
 
+        
 
 
-
-        Chord first;
-        try{
-            first = new Chord().major(SharpMajors.C).buildChord();
-        } catch(Exception e) {println(e);}
+        // Chord first;
+        // try{
+        //     first = new Chord().major(SharpMajors.C).buildChord();
+        // } catch(Exception e) {println(e);}
 
         //midi devices
         Sequencer seq;
@@ -81,7 +86,7 @@ public class Main extends JFrame {
             //sequence for sequencer
             Sequence mySeq = MidiSystem.getSequence(myMidiFile);
             // println(synth.getAvailableInstruments().length);
-            synth.getChannels()[9].programChange(synth.getAvailableInstruments()[105].getPatch().getProgram());
+            // synth.getChannels()[9].programChange(synth.getAvailableInstruments()[105].getPatch().getProgram());
             seq.setSequence(mySeq);
 
             seq.start();
@@ -90,11 +95,11 @@ public class Main extends JFrame {
             return;
         }
 
-        long length = seq.getMicrosecondLength();
-
+        
         //let program wait for midi file to end
         try {
-            Thread.sleep(length / 1000 + 1000);
+            long length = seq.getMicrosecondLength();
+            Thread.sleep(length / 1000 + 1);
         } catch (InterruptedException e) {
             return;
         }

@@ -2,22 +2,28 @@
 
 //major keys that use sharps rather than flats
 class SharpMajors {
-    public static final int C = 1, G = 2, D = 3, A = 4, E = 5, B = 6, Fs = 7;
+    public static final String list[] = {"C", "G", "D", "A", "E" ,"B", "F♯"};
+    public static final int C = 1 , G = 2, D = 3, A = 4, E = 5, B = 6, Fs = 7;
+    
 }; 
 //minor keys that use sharps
 class SharpMinors {
+    public static final String list[] = {"A", "E", "B", "F♯", "C♯", "G♯", "D♯"};
     public static final int A = 1, E = 2, B = 3, Fs = 4, Cs = 5, Gs = 6, Ds = 7;
 }; 
 //major keys that use flats rather than sharps
 class FlatMajors {
+    public static final String list[] = {"F", " B♭", "A♭", "D♭", "G♭", "C♭"};
     public static final int F = 1, Bb = 2, Eb = 3, Ab = 4, Db = 5, Gb = 6, Cb = 7;
 }; 
 //minor keys that use flats 
 class FlatMinors {
+    public static final String list[] = {"D", "G", "C", "F", "B♭", "E♭", "A♭"};
     public static final int D = 1, G = 2, C = 3, F = 4, Bb = 5, Eb = 6, Ab = 7;
 }; 
 
 class Number {
+
     public static final int six = 1, sixFour = 2, seven = 3, sixFive = 4, fourThree = 5, fourTwo = 6;
 };
 class Notes {

@@ -36,3 +36,9 @@ Caused by: java.nio.file.FileSystemNotFoundException: Provider "jdt" not install
 	at scala.meta.internal.metals.MetalsLanguageServer.didFocus(MetalsLanguageServer.scala:919)
 	... 16 more
 
+2020.12.27 16:11:53 INFO  Started: Metals version 0.9.8 in workspace 'C:\Users\Lance\Documents\HolidayHacks' for client vscode.
+2020.12.27 16:11:55 INFO  time: initialize in 1.53s
+2020.12.27 16:11:59 WARN  Build server is not auto-connectable.
+2020.12.27 16:11:59 WARN  no build tool detected in workspace 'C:\Users\Lance\Documents\HolidayHacks'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+Dec 27, 2020 4:52:27 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
