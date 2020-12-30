@@ -63,7 +63,7 @@ public class Main extends JFrame {
             println(e);
         }
 
-        Chord a = new Chord().build(myChord);
+        Chord a = new Chord().major(SharpMajors.A).minor(SharpMinors.Cs).build(myChord);
         //midi devices
         Sequencer seq;
         Synthesizer synth;

@@ -113,3 +113,5 @@ Caused by: java.nio.file.FileSystemNotFoundException: Provider "clipboardCompare
 	at scala.meta.internal.metals.MetalsLanguageServer.didFocus(MetalsLanguageServer.scala:919)
 	... 15 more
 
+Dec 29, 2020 8:48:47 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
