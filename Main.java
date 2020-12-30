@@ -1,13 +1,15 @@
 import javax.swing.*;
 import javax.sound.midi.*;
+
+import java.awt.BorderLayout;
 import java.io.*;
 
 public class Main extends JFrame {
-    private static void println(java.lang.Object s) {
+    public static void println(java.lang.Object s) {
         System.out.println(s);
     }
 
-    private static void print(java.lang.Object s) {
+    public static void print(java.lang.Object s) {
         System.out.print(s);
     }
 
@@ -20,11 +22,14 @@ public class Main extends JFrame {
         // JLabel label = new JLabel("Hello World");
         // frame.add(label);
 
+        JPanel bot = new JPanel();
+
         String notes[] = SharpMajors.list;
         JComboBox<String> startingNotes = new JComboBox<String>(notes);
-        
+        bot.add(startingNotes);
+        bot.setSize(300, 300);
 
-        frame.add(startingNotes);
+        frame.add(bot, BorderLayout.CENTER);
 
         //Display the window.
         frame.setVisible(true);
@@ -50,12 +55,15 @@ public class Main extends JFrame {
 
         
 
+        // Java "builders" aka a chord is built with the variables functions rather than the constructor with the buildChord() function finalizing the chord from input
+        Chord myChord = new Chord().major(SharpMajors.A).minor(SharpMinors.Cs).number(Number.fourTwo);
+        try {
+            myChord.buildChord();
+        } catch (Exception e) {
+            println(e);
+        }
 
-        // Chord first;
-        // try{
-        //     first = new Chord().major(SharpMajors.C).buildChord();
-        // } catch(Exception e) {println(e);}
-
+        Chord a = new Chord().build(myChord);
         //midi devices
         Sequencer seq;
         Synthesizer synth;
@@ -89,7 +97,8 @@ public class Main extends JFrame {
             // synth.getChannels()[9].programChange(synth.getAvailableInstruments()[105].getPatch().getProgram());
             seq.setSequence(mySeq);
 
-            seq.start();
+            //starts the music
+            // seq.start();
         } catch (Exception e) {
             println("bad file");
             return;

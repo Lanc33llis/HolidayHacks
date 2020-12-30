@@ -81,11 +81,13 @@ public class Chord {
         return this;
     }
 
-    public Chord buildChord(Chord startingChord){
-        return this;
-    };
+    public void buildChord(Chord startingChord) {
+        return;
+    }
 
-    public Chord buildChord() throws Exception {
+    public void buildChord() throws Exception {
+        //this is all nonsense. Just testing the actual function to see if it works, and it does. 
+        //This is probably a valid way to do the logic though.
         if (notes == null && (major == -1 || minor == -1)) {
             throw new Exception("Chord with no notes with no major or minor!");
         } else if (notes == null) {
@@ -95,9 +97,34 @@ public class Chord {
             this.notes[2] = Notes.B + Notes.sharp;
             this.notes[3] = Notes.E;
         }
+        return;
+    }
 
+    /**
+     * This function is out of convenience. Allows building using this function.
+     * Calls buildChord
+     * @return Chord
+     */
+    public Chord build() {
+        try {
+            buildChord();
+        } catch (Exception e) {Main.println(e);}
         return this;
     }
+
+    /**
+     * This function is out of convenience. Allows building using this function.
+     * Calls buildChord
+     * @param startingChord
+     * @return Chord
+     */
+    public Chord build(Chord startingChord) {
+        try {
+            buildChord(startingChord);
+        } catch (Exception e) {Main.println(e);}
+        return this;
+    }
+
 
     public int getMajor() {
         return major;
