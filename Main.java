@@ -3,6 +3,7 @@ import javax.sound.midi.*;
 
 import java.awt.BorderLayout;
 import java.io.*;
+import java.net.NoRouteToHostException;
 
 public class Main extends JFrame {
     public static void println(java.lang.Object s) {
@@ -18,20 +19,15 @@ public class Main extends JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
 
-        // //Hello World Label
-        // JLabel label = new JLabel("Hello World");
-        // frame.add(label);
+        JMenuBar menuBar = new JMenuBar();
+        JMenu mFile = new JMenu("File");
+        JMenu mHelp = new JMenu("Help");
+        menuBar.add(mFile);
+        menuBar.add(mHelp);
 
-        JPanel bot = new JPanel();
+        
 
-        String notes[] = SharpMajors.list;
-        JComboBox<String> startingNotes = new JComboBox<String>(notes);
-        bot.add(startingNotes);
-        bot.setSize(300, 300);
-
-        frame.add(bot, BorderLayout.CENTER);
-
-        //Display the window.
+        frame.add(menuBar, BorderLayout.NORTH);
         frame.setVisible(true);
     }
 

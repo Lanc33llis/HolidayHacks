@@ -115,3 +115,7 @@ Caused by: java.nio.file.FileSystemNotFoundException: Provider "clipboardCompare
 
 Dec 29, 2020 8:48:47 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTraceNotification
+2020.12.31 15:42:24 INFO  Started: Metals version 0.9.8 in workspace 'C:\Users\Lance\Documents\HolidayHacks' for client vscode.
+2020.12.31 15:42:26 INFO  time: initialize in 1.67s
+2020.12.31 15:42:31 WARN  Build server is not auto-connectable.
+2020.12.31 15:42:31 WARN  no build tool detected in workspace 'C:\Users\Lance\Documents\HolidayHacks'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
