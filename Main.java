@@ -1,9 +1,9 @@
 import javax.swing.*;
+import javax.imageio.ImageIO;
 import javax.sound.midi.*;
-
 import java.awt.BorderLayout;
 import java.io.*;
-import java.net.NoRouteToHostException;
+import java.awt.image.*;
 
 public class Main extends JFrame {
     public static void println(java.lang.Object s) {
@@ -17,7 +17,7 @@ public class Main extends JFrame {
     Main() {
         JFrame frame = new JFrame("Music Theory");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setSize(1000, 600);
 
         JMenuBar menuBar = new JMenuBar();
         JMenu mFile = new JMenu("File");
@@ -25,9 +25,23 @@ public class Main extends JFrame {
         menuBar.add(mFile);
         menuBar.add(mHelp);
 
-        
+        JPanel content = new JPanel();
+
+        BufferedImage musicSheet = null;
+        try {
+            musicSheet = ImageIO.read(new File("music part.png"));
+        } catch (IOException e) {
+            try {
+                musicSheet = ImageIO.read(this.getClass().getResource("music part.png"));
+            } catch (IOException b) {println(b);};
+        }
+
+        JLabel picLabel = new JLabel(new ImageIcon(musicSheet));
+
+        content.add(picLabel);
 
         frame.add(menuBar, BorderLayout.NORTH);
+        frame.add(content, BorderLayout.CENTER);
         frame.setVisible(true);
     }
 
