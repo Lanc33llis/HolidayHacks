@@ -1,5 +1,3 @@
-
-
 //major keys that use sharps rather than flats
 class SharpMajors {
     public static final String list[] = {"C", "G", "D", "A", "E" ,"B", "F♯"};
@@ -39,52 +37,72 @@ public class Chord {
     private int number = -1;
     private int notes[] = null;
 
-
-
-    // public Chord(int major, int minor, boolean accidental, int romanNumeral, int notes[]) {
-    //     this.accidental = accidental;
-    //     this.romanNumeral = romanNumeral;
-    //     this.major = major;
-    //     this.minor = minor;
-    //     this.notes = notes;
-    // }   
-
     Chord(){};
 
+    /**
+     * This function sets the major, builder
+     * @param m (the major from SharpMajors or FlatMajors)
+     * @return Chord
+     */
     public Chord major(int m) {
         this.major = m;
         return this;
     }
 
+    /**
+     * This function sets the minor, builder
+     * @param m (the minor from SharpMinors or FlatMinors)
+     * @return Chord
+     */
     public Chord minor(int m) {
         this.minor = m;
         return this;
     }
 
+    /**
+     * This function sets the accidental
+     * @param b (is accidental or not)
+     * @return Chord
+     */
     public Chord accidental(boolean b) {
         this.accidental = b;
         return this;
     }
 
+    /**
+     * This function sets the roman numeral
+     * @param r (roman numeral from nonexistent roman numeral class)
+     * @return Chord
+     */
     public Chord romanNumeral(int r) {
         this.romanNumeral = r;
         return this;
     }
 
+    /**
+     * This function sets the number
+     * @param n (the number from Number)
+     * @return Chord
+     */
     public Chord number(int n) {
         this.number = n;
         return this;
     }
 
+    /**
+     * This function sets the notes
+     * @param n (Array of notes)
+     * @return
+     */
     public Chord notes(int n[]) {
         this.notes = n;
         return this;
     }
-
-    protected void buildChord(Chord startingChord) {
-        return;
-    }
-
+    
+    /**
+     * This actually does the logic and math behind chord building
+     * @throws Exception
+     */
     protected void buildChord() throws Exception {
         //this is all nonsense. Just testing the actual function to see if it works, and it does. 
         //This is probably a valid way to do the logic though.
@@ -97,6 +115,15 @@ public class Chord {
             this.notes[2] = Notes.B + Notes.sharp;
             this.notes[3] = Notes.E;
         }
+        return;
+    }
+
+    /**
+     * This actually does the logic and math behind chord building
+     * Overloaded to do things with a base Chord
+     * @throws Exception
+     */
+    protected void buildChord(Chord startingChord) throws Exception {
         return;
     }
 

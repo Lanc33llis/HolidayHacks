@@ -62,10 +62,7 @@ public class Main extends JFrame {
         //for each chord, all information required:
         //each chord needs roman numeral, may or may not have a number, can be diminished or half-diminished in rare cases, starting notes, bass, tenor, alto, soprano, length
 
-
-        
-
-        // Java "builders" aka a chord is built with the variables functions rather than the constructor with the buildChord() function finalizing the chord from input
+        // Java "builders" aka a chord is built with the variables functions rather than the constructor with the build() function finalizing the chord from input
         Chord myChord = new Chord().major(SharpMajors.A).minor(SharpMinors.Cs).number(Number.fourTwo).build();
         
         //midi devices
