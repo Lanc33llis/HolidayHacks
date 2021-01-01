@@ -81,11 +81,11 @@ public class Chord {
         return this;
     }
 
-    public void buildChord(Chord startingChord) {
+    protected void buildChord(Chord startingChord) {
         return;
     }
 
-    public void buildChord() throws Exception {
+    protected void buildChord() throws Exception {
         //this is all nonsense. Just testing the actual function to see if it works, and it does. 
         //This is probably a valid way to do the logic though.
         if (notes == null && (major == -1 || minor == -1)) {

@@ -66,14 +66,8 @@ public class Main extends JFrame {
         
 
         // Java "builders" aka a chord is built with the variables functions rather than the constructor with the buildChord() function finalizing the chord from input
-        Chord myChord = new Chord().major(SharpMajors.A).minor(SharpMinors.Cs).number(Number.fourTwo);
-        try {
-            myChord.buildChord();
-        } catch (Exception e) {
-            println(e);
-        }
-
-        Chord a = new Chord().major(SharpMajors.A).minor(SharpMinors.Cs).build(myChord);
+        Chord myChord = new Chord().major(SharpMajors.A).minor(SharpMinors.Cs).number(Number.fourTwo).build();
+        
         //midi devices
         Sequencer seq;
         Synthesizer synth;
