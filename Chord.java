@@ -25,8 +25,37 @@ class Number {
     public static final int six = 1, sixFour = 2, seven = 3, sixFive = 4, fourThree = 5, fourTwo = 6;
 };
 class Notes {
-    public static final int A = 1, B = 4, C = 7, D = 10, E = 13, F = 16, G = 19, flat = 1, sharp = 2;
+    //Flag system for notes. Allows each letter to be a flat or sharp and be a unique number
+    //AKA we can check a note by using an expression like if (myNote.equals(Notes.A | Notes.SHARP)) {logic}
+    //| and + are the same thing for this case use
+
+    //binary flags starting at 4
+    public static final int A = 1 << 2, B = 1 << 3, C = 1 << 4, D = 1 << 5, E = 1 << 6, F = 1 << 7, G = 1 << 8, FLAT = 1, SHARP = 2;
 };
+
+class Note {
+    private int note;
+    
+    Note(int note) {
+        //checks for remainder mod our initial binary flag value to determine if value is FLAT and SHARP
+        if (note % 4 == (int)(Notes.FLAT | Notes.SHARP)) {
+            note = -1;
+            Main.println("Error: Cannot have note with both FLAT and SHARP modifier");
+        }
+        this.note = note;
+    }
+
+    public int getNote() {
+        return note;
+    }
+
+    public boolean equals(Note a) {
+        if (a.note == this.note) {
+            return true;
+        }
+        return false;
+    }
+}
 
 // accidental boolean true = sharp, false = flat
 public class Chord {
@@ -35,7 +64,7 @@ public class Chord {
     private boolean accidental = true;
     private int romanNumeral = -1;
     private int number = -1;
-    private int notes[] = null;
+    private Note notes[] = null;
 
     Chord(){};
 
@@ -91,10 +120,10 @@ public class Chord {
 
     /**
      * This function sets the notes
-     * @param n (Array of notes)
+     * @param n (Array of Note(s))
      * @return
      */
-    public Chord notes(int n[]) {
+    public Chord notes(Note n[]) {
         this.notes = n;
         return this;
     }
@@ -109,11 +138,11 @@ public class Chord {
         if (notes == null && (major == -1 || minor == -1)) {
             throw new Exception("Chord with no notes with no major or minor!");
         } else if (notes == null) {
-            this.notes = new int[4];
-            this.notes[0] = Notes.A + Notes.sharp;
-            this.notes[1] = Notes.C + Notes.flat;
-            this.notes[2] = Notes.B + Notes.sharp;
-            this.notes[3] = Notes.E;
+            this.notes = new Note[4];
+            this.notes[0] = new Note(Notes.A + Notes.SHARP);
+            this.notes[1] = new Note(Notes.C + Notes.FLAT);
+            this.notes[2] = new Note(Notes.B + Notes.SHARP);
+            this.notes[3] = new Note(Notes.E);
         }
         return;
     }
@@ -152,13 +181,14 @@ public class Chord {
         return this;
     }
 
-
     public int getMajor() {
         return major;
     }
+
     public int getMinor() {
         return minor;
     }
+
     public boolean getAccidental() {
         return accidental;
     }
